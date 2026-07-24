@@ -1,0 +1,22 @@
+extern func printf(fmt: cstr, ...) i32
+
+func fizz_buzz(n: i32) {
+  for i in 1..=n {
+    if i % 3 == 0 && i % 5 == 0 {
+      printf("FizzBuzz ")
+    } elseif (i % 3 == 0) {
+      printf("Fizz ")
+    } elseif (i % 5 == 0) {
+      printf("Buzz ")
+    } else {
+      printf("%d ", i)
+    }
+    printf("\n")
+  }
+}
+
+func main() i32 {
+  let n = 10
+  fizz_buzz(n)
+  return 0
+}
