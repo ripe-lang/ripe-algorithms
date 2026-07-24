@@ -1,0 +1,32 @@
+extern func printf(fmt: cstr, ...) i32
+
+func insertion_sort(arr: [5]i32) [5]i32 {
+  for i in 1..arr.len {
+    let key = arr[i]
+    var j = i as i32 - 1
+
+    while j >= 0 && arr[j] > key {
+      arr[j + 1] = arr[j]
+      j = j - 1
+    }
+    arr[j + 1] = key
+  }
+  
+  return arr
+}
+
+func print_array(arr: [5]i32) {
+  for i in arr {
+    printf("%d ", i)
+  }
+  printf("\n")
+}
+
+func main() i32 {
+  var arr = [4,6,3,1,2]
+
+  arr = insertion_sort(arr)
+  print_array(arr)
+
+  return 0
+}
