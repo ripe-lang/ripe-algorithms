@@ -1,0 +1,44 @@
+extern func printf(fmt: cstr, ...) i32
+
+func swap(xp: *i32, yp: *i32) {
+  var temp = *xp
+  *xp = *yp
+  *yp = temp
+}
+
+func bubble_sort(arr: [5]i32) [5]i32 {
+  var n = arr.len
+  var swapped: bool = false
+
+  for i in 0..n-1 {
+    swapped = false
+    for j in 0..n-i-1 {
+      if arr[j] > arr[j + 1] {
+        swap(&arr[j], &arr[j + 1])
+        swapped = true
+      }
+    }
+
+    if swapped == false {
+      break
+    }
+  }
+
+  return arr
+}
+
+func print_array(arr: [5]i32) {
+  for i in arr {
+    printf("%d ", i)
+  }
+  printf("\n")
+}
+
+func main() i32 {
+  var arr = [4,6,3,1,2]
+
+  arr = bubble_sort(arr)
+  print_array(arr)
+
+  return 0
+}
