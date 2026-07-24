@@ -1,0 +1,40 @@
+extern func printf(fmt: cstr, ...) i32
+
+func selection_sort(arr: [5]i32) [5]i32 {
+  for i in 0..arr.len - 1 {
+    var min_idx = i
+
+    for j in (i + 1)..arr.len {
+      if arr[j] < arr[min_idx] {
+        min_idx = j
+      }
+    }
+
+    var temp = arr[i]
+    arr[i] = arr[min_idx]
+    arr[min_idx] = temp
+  }
+
+  return arr
+}
+
+func print_array(arr: [5]i32) {
+  for i in arr {
+    printf("%d ", i)
+  }
+  printf("\n")
+}
+
+func main() i32 {
+  var arr = [4,6,3,1,2]
+
+  printf("Original array:\n")
+  print_array(arr)
+
+  arr = selection_sort(arr)
+
+  printf("Sorted array:\n")
+  print_array(arr)
+
+  return 0
+}
