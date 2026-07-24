@@ -1,0 +1,34 @@
+extern func printf(fmt: cstr, ...) i32
+
+func binary_search(arr: [5]i32, x: i32) i32 {
+  var low = 0
+  var high = arr.len as i32 - 1
+
+  while low <= high {
+    var mid = low + (high - low) / 2
+
+    if arr[mid] == x {
+      return mid
+    } elseif arr[mid] < x {
+      low = mid + 1
+    } else {
+      high = mid - 1
+    }
+  }
+
+  return -1
+}
+
+func main() i32 {
+  let arr = [1,2,3,4,5]
+  let x = 3
+  let result = binary_search(arr, x)
+
+  if result == -1 {
+    printf("Element not in array\n")
+  } else {
+    printf("Element is at index: %d\n", result)
+  }
+
+  return 0
+}
