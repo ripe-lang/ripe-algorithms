@@ -1,11 +1,5 @@
 extern func printf(fmt: cstr, ...) i32
 
-func swap(xp: *i32, yp: *i32) {
-  var temp = *xp
-  *xp = *yp
-  *yp = temp
-}
-
 func bubble_sort(arr: [5]i32) [5]i32 {
   var n = arr.len
   var swapped: bool = false
@@ -14,7 +8,7 @@ func bubble_sort(arr: [5]i32) [5]i32 {
     swapped = false
     for j in 0..n-i-1 {
       if arr[j] > arr[j + 1] {
-        swap(&arr[j], &arr[j + 1])
+        arr[j], arr[j + 1] = arr[j + 1], arr[j]
         swapped = true
       }
     }
@@ -35,7 +29,7 @@ func print_array(arr: [5]i32) {
 }
 
 func main() i32 {
-  var arr = [4,6,3,1,2]
+  var arr = [4,5,3,1,2]
 
   arr = bubble_sort(arr)
   print_array(arr)
