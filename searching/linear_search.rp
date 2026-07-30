@@ -1,8 +1,8 @@
 extern func printf(fmt: cstr, ...) i32
 
-func linear_search(arr: [5]i32, x: i32) i32 {
-  for i in 0..arr.len {
-    if arr[i] == x {
+func linear_search(xs: []i32, x: i32) i32 {
+  for i in 0..xs.len {
+    if xs[i] == x {
       return i as i32
     }
   }

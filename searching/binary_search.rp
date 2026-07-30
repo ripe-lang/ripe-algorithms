@@ -1,15 +1,15 @@
 extern func printf(fmt: cstr, ...) i32
 
-func binary_search(arr: [5]i32, x: i32) i32 {
+func binary_search(xs: []i32, x: i32) i32 {
   var low = 0
-  var high = arr.len as i32 - 1
+  var high = xs.len as i32 - 1
 
   while low <= high {
     var mid = low + (high - low) / 2
 
-    if arr[mid] == x {
+    if xs[mid] == x {
       return mid
-    } else if arr[mid] < x {
+    } else if xs[mid] < x {
       low = mid + 1
     } else {
       high = mid - 1
