@@ -9,7 +9,7 @@ func binary_search(arr: [5]i32, x: i32) i32 {
 
     if arr[mid] == x {
       return mid
-    } elseif arr[mid] < x {
+    } else if arr[mid] < x {
       low = mid + 1
     } else {
       high = mid - 1
