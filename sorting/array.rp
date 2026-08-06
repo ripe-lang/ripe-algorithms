@@ -1,0 +1,8 @@
+extern func printf(fmt: cstr, ...) i32
+
+pub func print(xs: []i32) {
+  for x in xs {
+    printf("%d ", x)
+  }
+  printf("\n")
+}

@@ -1,4 +1,4 @@
-extern func printf(fmt: cstr, ...) i32
+import array
 
 func insertion_sort(xs: []i32) {
   for i in 1..xs.len {
@@ -7,24 +7,17 @@ func insertion_sort(xs: []i32) {
 
     while j >= 0 && xs[j] > key {
       xs[j + 1] = xs[j]
-      j = j - 1
+      j -= 1
     }
     xs[j + 1] = key
   }
-}
-
-func print_array(xs: []i32) {
-  for x in xs {
-    printf("%d ", x)
-  }
-  printf("\n")
 }
 
 func main() i32 {
   var arr = [4,6,3,1,2]
 
   insertion_sort(arr)
-  print_array(arr)
+  array.print(arr)
 
   return 0
 }

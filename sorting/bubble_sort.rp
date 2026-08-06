@@ -1,8 +1,8 @@
-extern func printf(fmt: cstr, ...) i32
+import array
 
 func bubble_sort(xs: []i32) {
   var n = xs.len
-  var swapped: bool = false
+  var swapped = false
 
   for i in 0..n-1 {
     swapped = false
@@ -19,18 +19,11 @@ func bubble_sort(xs: []i32) {
   }
 }
 
-func print_array(xs: []i32) {
-  for x in xs {
-    printf("%d ", x)
-  }
-  printf("\n")
-}
-
 func main() i32 {
   var arr = [4,5,3,1,2]
 
   bubble_sort(arr)
-  print_array(arr)
+  array.print(arr)
 
   return 0
 }

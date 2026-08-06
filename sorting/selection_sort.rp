@@ -1,5 +1,7 @@
 extern func printf(fmt: cstr, ...) i32
 
+import array
+
 func selection_sort(xs: []i32) {
   for i in 0..xs.len - 1 {
     var min_idx = i
@@ -10,29 +12,20 @@ func selection_sort(xs: []i32) {
       }
     }
 
-    var temp = xs[i]
-    xs[i] = xs[min_idx]
-    xs[min_idx] = temp
+    xs[i], xs[min_idx] = xs[min_idx], xs[i]
   }
-}
-
-func print_array(xs: []i32) {
-  for x in xs {
-    printf("%d ", x)
-  }
-  printf("\n")
 }
 
 func main() i32 {
   var arr = [4,6,3,1,2]
 
   printf("Original array:\n")
-  print_array(arr)
+  array.print(arr)
 
   selection_sort(arr)
 
   printf("Sorted array:\n")
-  print_array(arr)
+  array.print(arr)
 
   return 0
 }
